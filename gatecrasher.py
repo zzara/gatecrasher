@@ -1,7 +1,7 @@
 #!/bin/env python3
 # gatecrasher: automated batch login to systems
-# usage: python3 gatecrasher.py -c '/Users/user/.ssh/key' -u user -p passwword -i host/list
-#        python3 gatecrasher.py -c '/Users/user/.ssh/key' -u user -p passwword -l '/Users/user/Desktop/hosts_file.txt'
+# usage: python3 gatecrasher.py -c '/Users/user/.ssh/key' -u user -p password -i host/list
+#        python3 gatecrasher.py -c '/Users/user/.ssh/key' -u user -p password -l '/Users/user/Desktop/hosts_file.txt'
 
 import argparse
 import paramiko
