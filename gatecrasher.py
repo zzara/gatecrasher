@@ -7,19 +7,19 @@ import argparse
 import paramiko
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-c', '--cert', action="store")
+parser.add_argument('-k', '--key', action="store")
 parser.add_argument('-u', '--username', action="store")
 parser.add_argument('-p', '--password', action="store")
 parser.add_argument('-i', '--host', action="store")
 parser.add_argument('-l', '--list', action="store")
 args = parser.parse_args()
 
-def create_ssh(host, username, password, cert):
+def create_ssh(host, username, password, key):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
     try:
         print("creating connection to: {}".format(host))
-        ssh.connect(host, username=username, key_filename=cert, password=password)
+        ssh.connect(host, username=username, key_filename=key, password=password)
         command_who = 'whoami'
         command_ver = 'uname -a'
         stdin, stdout, stderr = ssh.exec_command(command_who)
@@ -43,9 +43,9 @@ def main():
             host_list = f.read().splitlines()
     username = args.username
     password = args.password
-    cert = args.cert
+    key = args.key
     for host in host_list:
-        create_ssh(host, username, password, cert)
+        create_ssh(host, username, password, key)
 
 if __name__ == "__main__": # execute this as a program drectly. do not make available functions as standalone.
     main()
