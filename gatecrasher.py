@@ -47,5 +47,5 @@ def main():
     for host in host_list:
         create_ssh(host, username, password, key)
 
-if __name__ == "__main__": # execute this as a program drectly. do not make available functions as standalone.
+if __name__ == "__main__":
     main()
